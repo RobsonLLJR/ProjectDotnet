@@ -1,0 +1,22 @@
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectDotnet.Core.Models.Domain.POS;
+using System.Reflection;
+
+namespace ProjectDotnet.Core.Data
+{
+    public class DataContext : DbContext
+    {
+        public DataContext(DbContextOptions<DataContext> options) : base(options) 
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+            ChangeTracker.LazyLoadingEnabled = false;
+        }
+        public DbSet<PointSale> Caixa => Set<PointSale>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+}

@@ -1,6 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using ProjectDotnet.Core.Data;
+using ProjectDotnet.Core.Service.CaixaService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddScoped<IPointSaleService, PointSaleService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
