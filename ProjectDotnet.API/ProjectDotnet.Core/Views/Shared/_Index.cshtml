@@ -1,0 +1,57 @@
+﻿﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="x_painel">
+    <div class="x_title">
+        <h2 class="me-4">
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Title))
+            {
+                @ViewBag.Title
+            }
+        </h2>
+        @{
+            if (IsSectionDefined("FilterForm"))
+            {
+                <nav class="navbar navbar-expand-lg navbar-dark bg-secondary rounded my-2">
+                    <div class="container">
+                        <button icon-name="list" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarContent" aria-controls="navBarContent" aria-expanded="false">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse d-flex justify-content-between" id="navBarContent">
+                            <form class="d-flex filterForm" id="filterForm" role="search" onsubmit="Filter(event)">
+                                @Html.AntiForgeryToken()
+                                @await RenderSectionAsync("FilterForm", false)
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            }
+        }
+        <div id="partialContent">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            List();
+        });
+
+        function Filter(event) {
+            event.preventDefault();
+            List();
+        };
+
+        function List() {
+            ShowLoading();
+            $('#partialContent').load('@Url.Action("Get")', GetForm(), HideLoading());
+        }
+
+        function GetForm() {
+            var formFilter = $("#filterForm").serialize();
+            return formFilter;
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", false)
+}

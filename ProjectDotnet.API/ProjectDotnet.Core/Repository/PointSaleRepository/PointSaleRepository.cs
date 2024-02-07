@@ -2,7 +2,7 @@
 using ProjectDotnet.Core.Data;
 using ProjectDotnet.Core.Dto.PointSaleDtos;
 using ProjectDotnet.Core.Filter.PointSaleFilter;
-using ProjectDotnet.Core.Models.Domain.POS;
+using ProjectDotnet.Core.Models.Domain.PointSale;
 using System.Linq.Expressions;
 namespace ProjectDotnet.Core.Repository.PointSaleRepository
 {
@@ -31,10 +31,6 @@ namespace ProjectDotnet.Core.Repository.PointSaleRepository
             &&
             (
                 filter.DateOpenEnd == null || x.DateOpen <= filter.DateOpenEnd
-            )
-            &&
-            (
-                filter.Open == null || x.DateClose.Equals(null)
             )
             &&
             (

@@ -8,7 +8,7 @@ namespace ProjectDotnet.Core.Repository
         protected readonly DataContext _context;
         public RepositoryBase(DataContext context) : base() => _context = context;
 
-        public async Task<T?> FindAsync(int id) =>
+        public async Task<T> FindAsync(int id) =>
             await _context.Set<T>().FindAsync(id);
         public async Task<bool> AddAsync(T newObject)
         {

@@ -1,4 +1,4 @@
-﻿namespace ProjectDotnet.Core.Models.Domain.POS
+﻿namespace ProjectDotnet.Core.Models.Domain.PointSale
 {
     public class PointSale
     {

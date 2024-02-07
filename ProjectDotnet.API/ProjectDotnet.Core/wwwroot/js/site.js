@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//#region Loading
 
-// Write your JavaScript code.
+function AlterMessageLoading(mensagem) {
+    $('#MessageLoading').text(mensagem);
+}
+
+function HideLoading() {
+    $('#Loading').modal('hide');
+}
+
+function ShowLoading() {
+    ShowLoadingMessage('Carregando...');
+}
+
+function ShowLoadingMessage(mensagem) {
+    AlterMessageLoading(mensagem);
+    $('#Loading').modal('show');
+}
+
+
+//#endregion

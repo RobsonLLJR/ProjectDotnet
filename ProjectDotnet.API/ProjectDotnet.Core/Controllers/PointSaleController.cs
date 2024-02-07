@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectDotnet.Core.Dto.PointSaleDtos;
 using ProjectDotnet.Core.Filter.PointSaleFilter;
-using ProjectDotnet.Core.Service.CaixaService;
+using ProjectDotnet.Core.Service.PointSaleService;
 
 namespace ProjectDotnet.Core.Controllers
 {

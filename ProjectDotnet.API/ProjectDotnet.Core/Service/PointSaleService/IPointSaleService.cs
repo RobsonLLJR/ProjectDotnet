@@ -1,7 +1,7 @@
 ﻿using ProjectDotnet.Core.Dto.PointSaleDtos;
 using ProjectDotnet.Core.Filter.PointSaleFilter;
 
-namespace ProjectDotnet.Core.Service.CaixaService
+namespace ProjectDotnet.Core.Service.PointSaleService
 {
     public interface IPointSaleService
     {

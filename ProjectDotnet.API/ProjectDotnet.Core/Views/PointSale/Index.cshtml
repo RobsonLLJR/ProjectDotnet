@@ -1,0 +1,12 @@
+﻿@using ProjectDotnet.Core.Filter.PointSaleFilter
+@model PointSaleFilter
+@{
+    Layout = "~/Views/Shared/_Index.cshtml";
+    ViewBag.Title = "Caixas";
+}
+@section FilterForm{
+    <input-filter asp-for="DateOpenStart" type="date" />
+    <input-filter asp-for="DateOpenEnd" type="date" />
+    <input-filter asp-for="Observation" />
+    <button-filter />
+}

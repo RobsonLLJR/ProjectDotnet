@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjectDotnet.Core.Models.Domain.POS;
+using ProjectDotnet.Core.Models.Domain.PointSale;
 using System.Reflection;
 
 namespace ProjectDotnet.Core.Data

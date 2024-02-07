@@ -1,0 +1,40 @@
+﻿@using ProjectDotnet.Core.Dto.PointSaleDtos
+@model List<GetPointSaleDto>
+@{
+    GetPointSaleDto objectModel = new();
+}
+<div class="table-responsive">
+    <table id="tableMain">
+        <thead>
+            <tr>
+                <th asp-for="@objectModel.Id" />
+                <th asp-for="@objectModel.DateOpen" />
+                <th asp-for="@objectModel.DateClose" />
+                <th asp-for="@objectModel.Observation" />
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model.Count > 0)
+                {
+
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td asp-for="@Model[i].Id" />
+                            <td asp-for="@Model[i].DateOpen" />
+                            <td asp-for="@Model[i].DateClose" />
+                            <td asp-for="@Model[i].Observation" />
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-danger">Nenhum registro encontrado..</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

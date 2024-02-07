@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectDotnet.Core.Data;
-using ProjectDotnet.Core.Service.CaixaService;
+using ProjectDotnet.Core.Service.PointSaleService;
+using ProjectDotnet.Core.TagHelpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,10 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddScoped<IPointSaleService, PointSaleService>();
+builder.Services.AddTransient<IconHTMLTagHelper>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddAntiforgery(opt => opt.HeaderName = "XSRF-TOKEN");
 
 var app = builder.Build();
 
