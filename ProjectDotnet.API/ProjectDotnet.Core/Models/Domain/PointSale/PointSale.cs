@@ -2,9 +2,9 @@
 {
     public class PointSale
     {
-        public int Id { get; set; }
-        public DateTime DateOpen { get; set; }
-        public DateTime? DateClose { get; set; }
-        public string Observation { get; set; } = string.Empty;
+        public virtual int Id { get; set; }
+        public virtual DateTime DateOpen { get; set; }
+        public virtual DateTime? DateClose { get; set; }
+        public virtual string Observation { get; set; } = string.Empty;
     }
 }

@@ -11,7 +11,7 @@ namespace ProjectDotnet.Core.Data
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.LazyLoadingEnabled = false;
         }
-        public DbSet<PointSale> Caixa => Set<PointSale>();
+        public DbSet<PointSale> PointSale => Set<PointSale>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
